@@ -1,0 +1,52 @@
+<div style="margin-top: -30px;margin-left: 600px;text-align: center;border: 1 px solid black;width: 300px;height: 25px; border-radius: 5px;background-color: black;color: white "><?=$this->identity->nome?></div>
+<nav id="horizontal">
+    <ul id="nav">
+
+        <li>
+            <a href="<?= $this->baseUrl('login/sair/') ?>">Sair</a><span></span></a>
+        </li>
+
+
+    </ul>
+</nav>
+<div class=""><p>
+        <a class="button orange" href="<?= $this->baseUrl('/secretaria/adicionar-sala/') ?>">Adicionar Sala</a>
+        <a class="button orange" href="<?= $this->baseUrl('/cadastros/') ?>">Voltar</a>
+        </p></div>
+<!--        <a href="<?= $this->baseUrl('/secretaria/adicionar-sala/') ?>">Adicionar Sala</a></p></div>-->
+<table class="style2"> 
+    <thead> 
+        <tr> 
+            <th>Número</th> 
+            <th>Tipo de Sala</th>
+            <th>Descrição</th> 
+            <th>Capacidade </th> 
+            <th>Tipo</th> 
+            <th>Informações adicionais</th>
+            <th>Status</th>
+            <th>Responsável</th>
+            <th colspan="2">Ação</th>
+        </tr> 
+    </thead> 
+    <? foreach ($this->listaSalas as $item): ?> 
+        <tbody> 
+            <tr> 
+                <td><?= $item->getNumero() ?></td> 
+                <td><?= $item->getId_tipo_sala() ?></td> 
+                <td><?= $item->getDescricao() ?></td> 
+                <td><?= $item->getCapacidade() ?></td> 
+                <td><?= $item->getCapacidade_desc() ?></td>
+                <td><?= $item->getInfo_adicionais() ?></td> 
+                <td><?= $item->getStatus_disponibilidade() ?></td>
+                <td><?= $item->getResponsavel() ?></td> 
+                <td>
+                    <a class="button green small" href="<?= $this->baseUrl('/secretaria/editar-sala/') ?><?= $item->getNumero() ?>">Editar</a>
+                </td>
+                <td>
+                    <a class="button red small"href="<?= $this->baseUrl('/secretaria/remover-sala/id_sala/') ?><?= $item->getNumero() ?>">Remover</a>
+                </td>
+            </tr>
+        </tbody>
+    <? endforeach; ?>
+</table>
+

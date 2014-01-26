@@ -1,0 +1,11 @@
+.branco {
+    background-color: white;
+}
+
+.verde {
+    background-color: lawngreen;
+}
+
+.verde:hover{
+    background-color: #FF0000;
+}

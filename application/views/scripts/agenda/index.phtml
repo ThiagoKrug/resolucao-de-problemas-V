@@ -1,0 +1,80 @@
+
+<div style="margin-top: -30px;margin-left: 600px;text-align: center;border: 1 px solid black;width: 300px;height: 25px; border-radius: 5px;background-color: black;color: white "><?=$this->identity->nome?></div>
+
+<a class="button orange" style="margin-left: 4%"href="<?= $this->baseUrl('agenda/cadastrar-evento') ?>">Criar Evento</a>
+<script type='text/javascript'>
+
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+                var i=0;
+                
+		
+		var calendar = $('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end, allDay) {
+				//var title = prompt('Event Title:');
+				if (title) {
+					calendar.fullCalendar('renderEvent',
+						{
+							title: title,
+							start: start,
+							end: end,
+							allDay: allDay
+						},
+						true // make the event "stick"
+					);
+				}
+				calendar.fullCalendar('unselect');
+			},
+			editable: true,
+			events: [
+                        
+                        <? for($i=0;$i<count($this->listaEventos['titulo']);$i++):?>
+                         {
+                            id     : '<?=$this->listaEventos['id_evento'][$i]?>', 
+                            title  : '<?=$this->listaEventos['titulo'][$i]?>',
+                            start  : '<?=$this->listaEventos['dataInicial'][$i]?> <?=$this->listaEventos['hora1'][$i]?>',
+                            end    : '<?=$this->listaEventos['dataFinal'][$i]?> <?=$this->listaEventos['hora2'][$i]?>',
+                            allDay: false,
+                            url: '<?=$this->baseUrl('/agenda/cadastrar-evento/evento/'.$this->listaEventos['id_evento'][$i])?>'
+                        },
+                        <? endfor;?>
+			
+			]
+		});
+		
+	});
+
+</script>
+<style type='text/css'>
+
+	#calendar {
+		width: 900px;
+		margin: 0 auto;
+		}
+
+</style>
+
+<div id='calendar'></div>
+<nav id="horizontal">
+    <ul id="nav">
+
+        <li>
+            <a href="<?= $this->baseUrl('login/sair/') ?>">Sair</a><span></span></a>
+        </li>
+        
+
+
+    </ul>
+</nav>
+

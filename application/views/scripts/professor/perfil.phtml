@@ -1,0 +1,69 @@
+<div style="margin-top: -30px;margin-left: 600px;text-align: center;border: 1 px solid black;width: 300px;height: 25px; border-radius: 5px;background-color: black;color: white "><?=$this->identity->nome?></div>
+<nav id="horizontal">
+    <ul id="nav">
+
+        <li>
+            <a href="<?= $this->baseUrl('login/sair/') ?>">Sair</a><span></span></a>
+        </li>
+
+
+    </ul>
+</nav>
+
+<table class="style2"> 
+    <thead> 
+        <tr> 
+            <th>Nome</th> 
+            <th>Matricula</th>
+
+<!--            <th colspan="2">Ação</th>-->
+        </tr> 
+    </thead> 
+
+    <tbody> 
+        <tr> 
+
+            <td><?= $this->professor['nome'] ?></td> 
+            <td><?= $this->professor['matricula'] ?></td> 
+        </tr>
+    </tbody>
+
+</table>
+
+
+<table class="style2"> 
+    <thead> 
+        <tr> 
+            <th>Código</th> 
+            <th>Disciplina</th>
+            <th>Nível de Interesse</th>
+
+<!--            <th colspan="2">Ação</th>-->
+        </tr> 
+    </thead> 
+    <tbody>
+        <? for ($i = 0; $i < count($this->listaDisciplinas['codigo']); $i++): ?>
+            <? for ($i = 0; $i < count($this->listaDisciplinas['nome']); $i++): ?>
+                <? for ($i = 0; $i < count($this->listaDisciplinas['nivel_interesse']); $i++): ?>
+
+                    <tr>
+                        <td><?= $this->listaDisciplinas['codigo'][$i] ?></td> 
+                        <td><?= $this->listaDisciplinas['nome'][$i] ?></td> 
+                        <td><?= $this->listaDisciplinas['nivel_interesse'][$i] ?></td> 
+
+
+                    </tr>
+                <? endfor; ?>  
+            <? endfor; ?>  
+        <? endfor; ?> 
+
+
+
+
+
+
+    </tbody>
+
+
+</table>
+

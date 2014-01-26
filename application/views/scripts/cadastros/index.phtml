@@ -1,0 +1,45 @@
+<div style="margin-top: -30px;margin-left: 600px;text-align: center;border: 1 px solid black;width: 300px;height: 25px; border-radius: 5px;background-color: black;color: white "><?=$this->identity->nome?></div>
+<nav id="horizontal">
+    <ul id="nav">
+
+        <li>
+            <a href="<?= $this->baseUrl('login/sair/') ?>">Sair</a><span></span></a>
+        </li>
+
+
+    </ul>
+</nav>
+<h3>Área da Secretaria</h3>
+<table> 
+    <thead> 
+        <tr> 
+            <!--<th>Areas de interesse</th> -->
+            <th>Equipamentos</th> 
+            <th>Salas</th> 
+            <th>Tipos de Salas</th> 
+
+        </tr> 
+    </thead> 
+    <tbody> 
+        <tr> 
+            <td>
+                <a class="button blue small" href="<?= $this->baseUrl('/equipamento/index/') ?>">Gerenciar Equipamentos</a>
+
+            </td>
+            <td>
+                <a class="button blue small" href="<?= $this->baseUrl('/secretaria/index/') ?>">Gerenciar Salas</a>
+            </td>
+            <td>
+                <a class="button blue small" href="<?= $this->baseUrl('/tipo-sala/index/') ?>">Gerenciar Tipos de Sala</a>
+            </td>
+
+
+        </tr> 
+
+    </tbody>
+</table>
+
+
+
+
+

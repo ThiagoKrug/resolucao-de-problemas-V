@@ -1,0 +1,38 @@
+<div style="margin-top: -30px;margin-left: 600px;text-align: center;border: 1 px solid black;width: 300px;height: 25px; border-radius: 5px;background-color: black;color: white "><?=$this->identity->nome?></div>
+<nav id="horizontal">
+    <ul id="nav">
+
+        <li>
+            <a href="<?= $this->baseUrl('login/sair/') ?>">Sair</a><span></span></a>
+        </li>
+
+
+    </ul>
+</nav>
+<p><a class="button orange" href="<?= $this->baseUrl('/disciplina/cadastrar-disciplina/') ?>">Cadastrar Disciplina</a></p>
+<table class="style2"> 
+    <thead> 
+        <tr> 
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Ementa</th>
+            <th colspan ="2">Ação</th>
+        </tr> 
+    </thead> 
+    <tbody> 
+        <? foreach ($this->listarTodos as $item): ?> 
+            <tr> 
+
+                <td><?= $item->getCodigo() ?></td>
+                <td><?= $item->getNome() ?></td>
+                <td><?= $item->getEmenta() ?></td>
+                <td>
+                    <a class="button green small" href="<?= $this->baseUrl('/disciplina/editar-disciplina/id_disciplina/') ?><?= $item->getId_disciplina() ?>">Editar</a>
+                </td>
+                <td>
+                    <a class="button red small"     href="<?= $this->baseUrl('/disciplina/remover-disciplina/id_disciplina/') ?><?= $item->getId_disciplina() ?>">Remover</a>
+                </td>
+            </tr>
+        <? endforeach; ?>
+    </tbody>
+</table>

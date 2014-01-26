@@ -1,0 +1,36 @@
+<div style="margin-top: -30px;margin-left: 600px;text-align: center;border: 1 px solid black;width: 300px;height: 25px; border-radius: 5px;background-color: black;color: white "><?=$this->identity->nome?></div>
+<nav id="horizontal">
+    <ul id="nav">
+
+        <li>
+            <a href="<?= $this->baseUrl('login/sair/') ?>">Sair</a><span></span></a>
+        </li>
+
+
+    </ul>
+</nav>
+<div class=""><p><a href="<?= $this->baseUrl('/professor/cadastrar-professor/') ?>">Adicionar Professor</a></p></div>
+<table class="style2"> 
+    <thead> 
+        <tr> 
+            <th>Nome</th> 
+            <th>Matrícula</th>
+            <th colspan="2">Ação</th>
+        </tr> 
+    </thead> 
+    <? foreach ($this->listaProfessor as $item): ?> 
+        <tbody> 
+            <tr> 
+                <td><?= $item->getNome() ?></td> 
+                <td><?= $item->getMatricula() ?></td> 
+                <td>
+                    <a href="<?= $this->baseUrl('/professor/editar-professor/id_usuario/') ?><?= $item->getId_usuario() ?>">Editar</a>
+                </td>
+                <td>
+                    <a href="<?= $this->baseUrl('/professor/remover-professor/id_usuario/') ?><?= $item->getId_usuario() ?>">Remover</a>
+                </td>
+            </tr>
+        </tbody>
+    <? endforeach; ?>
+</table>
+
