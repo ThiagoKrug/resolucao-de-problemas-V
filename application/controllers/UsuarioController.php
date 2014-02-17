@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 class UsuarioController extends Zend_Controller_Action {
 
